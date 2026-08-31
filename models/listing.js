@@ -9,7 +9,10 @@ const listingSchema = new Schema({
     description: String,
     image: {
         type: String,
-        required: true,
+        set: (v) =>
+            v ===""
+                ? "https://unsplash.com/photos/tree-with-yellow-blossoms-IDDlWIQ9gDM"
+                : v,
     },
     price: Number,
     location: String,
@@ -17,4 +20,4 @@ const listingSchema = new Schema({
 });
 
 const Listing = mongoose.model("Listing", listingSchema);
-modules.export=LL;isting
+module.export=Listing;
